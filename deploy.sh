@@ -25,7 +25,10 @@ if [ $? -eq  0 ]; then
   echo "检查到Docker已安装!"
 else
   echo "安装docker环境..."
-  curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+  curl -fsSL https://get.docker.com | sh --mirror Aliyun
+  usermod -aG docker $USER
+  systemctl start docker
+  # service docker start
   echo "安装docker环境...安装完成!"
 fi
 
